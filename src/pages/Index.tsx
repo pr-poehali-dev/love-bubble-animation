@@ -164,6 +164,11 @@ const Index = () => {
     setTimeout(() => setShowResult(true), 400);
   };
 
+  const handleBack = () => {
+    setShowResult(false);
+    setChoice("none");
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden font-caveat"
       style={{ background: "linear-gradient(180deg, hsl(340, 60%, 95%) 0%, hsl(340, 50%, 92%) 100%)" }}>
@@ -242,7 +247,7 @@ const Index = () => {
         )}
 
         {showResult && choice === "not_harmful" && (
-          <div className="animate-scale-in mt-2">
+          <div className="animate-scale-in mt-2 flex flex-col items-center">
             <HeartShape>
               <p
                 className="text-xl md:text-2xl font-semibold leading-snug"
@@ -251,11 +256,27 @@ const Index = () => {
                 нет, ты вредни, но я тебя очень люблю, Коль
               </p>
             </HeartShape>
+            <button
+              onClick={handleBack}
+              className="mt-4 group transition-all duration-300 hover:scale-110 active:scale-90"
+              aria-label="Назад"
+            >
+              <svg width="48" height="44" viewBox="0 0 24 24" style={{ filter: "drop-shadow(0 2px 6px hsla(340, 70%, 60%, 0.4))" }}>
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  fill="hsl(340, 70%, 65%)"
+                  className="transition-all duration-300 group-hover:fill-[hsl(340,80%,55%)]"
+                />
+                <text x="12" y="13" textAnchor="middle" dominantBaseline="central" fill="white" fontSize="7" fontWeight="bold" fontFamily="Caveat, cursive">
+                  назад
+                </text>
+              </svg>
+            </button>
           </div>
         )}
 
         {showResult && choice === "yourself" && (
-          <div className="animate-fade-in mt-4">
+          <div className="animate-fade-in mt-4 flex flex-col items-center">
             <p
               className="text-2xl md:text-3xl font-semibold text-center max-w-md leading-relaxed"
               style={{
@@ -265,6 +286,22 @@ const Index = () => {
             >
               да, я знаю, но ты все равно меня любишь. и я тебя очень люблю, любимый цветочек
             </p>
+            <button
+              onClick={handleBack}
+              className="mt-6 group transition-all duration-300 hover:scale-110 active:scale-90"
+              aria-label="Назад"
+            >
+              <svg width="48" height="44" viewBox="0 0 24 24" style={{ filter: "drop-shadow(0 2px 6px hsla(340, 70%, 60%, 0.4))" }}>
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  fill="hsl(340, 70%, 65%)"
+                  className="transition-all duration-300 group-hover:fill-[hsl(340,80%,55%)]"
+                />
+                <text x="12" y="13" textAnchor="middle" dominantBaseline="central" fill="white" fontSize="7" fontWeight="bold" fontFamily="Caveat, cursive">
+                  назад
+                </text>
+              </svg>
+            </button>
           </div>
         )}
       </div>
